@@ -27,7 +27,7 @@ const FriendsRequest = () => {
 
     return (
         <>
-            <Header />
+            <Header tab="friendrs" />
             <div className="container-fluid" style={{ paddingTop: "80px" }}>
                 <div className="container">
                     <div className="d-flex justify-content-between align-items-center mb-1">

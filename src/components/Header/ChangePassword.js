@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const ChangePassword = () => {
+
+  const [oldPassword, setOld] = useState("")
+  const [newPassword, setNew] = useState("")
+  const [conPassword, setCon] = useState("")
+
+  const updatePassword = ()=>{
+    axios.put('/update-password', {oldPassword, newPassword, conPassword}).then(function(res){
+      if(res.data.success){
+        toast.success(res.data.message, {position: toast.POSITION_TOP_RIGHT})
+      }else{
+        toast.error(res.data.message, {position: toast.POSITION_TOP_RIGHT})
+      }
+    })
+  }
+
   return (
     <>
       <Header />
@@ -16,6 +33,7 @@ const ChangePassword = () => {
                 </h2>
                 <div class="form-floating mb-3">
                   <input
+                    onChange = {(e)=>{setOld(e.target.value)}}
                     type="password"
                     class="form-control"
                     id="floatingInput"
@@ -33,6 +51,7 @@ const ChangePassword = () => {
                 </div>
                 <div class="form-floating mb-3">
                   <input
+                    onChange = {(e)=>{setNew(e.target.value)}}
                     type="password"
                     class="form-control"
                     id="floatingPassword"
@@ -42,6 +61,7 @@ const ChangePassword = () => {
                 </div>
                 <div class="form-floating mb-3">
                   <input
+                    onChange = {(e)=>{setCon(e.target.value)}}
                     type="password"
                     class="form-control"
                     id="floatingPassword"
@@ -102,7 +122,7 @@ const ChangePassword = () => {
               </div>
             </form>
             <div className="d-flex align-items-center justify-content-center mb-4">
-              <button className="btn btn-primary d-flex align-items-center px-5 justify-content-center">
+              <button onClick={updatePassword} className="btn btn-primary d-flex align-items-center px-5 justify-content-center">
                 Change Password
               </button>
             </div>

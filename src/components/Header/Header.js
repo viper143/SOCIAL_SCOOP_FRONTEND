@@ -9,7 +9,7 @@ import Logo from "../images/logo-social.png";
 
 const socket = io("http://localhost:5000");
 
-const Header = () => {
+const Header = (props) => {
   const navigate = useNavigate();
 
   function parseJwt(token) {
@@ -195,7 +195,7 @@ const Header = () => {
             {/* nav */}
             <div className="col d-none d-lg-flex justify-content-center">
               {/* home */}
-              <div className="mx-4 nav__btn nav__btn-active">
+              <div className={`mx-4 nav__btn ${props.tab === "friendrs"? "":"nav__btn-active"}`}>
                 <Link to="/home" className="btn px-4">
                   <i className="fas fa-home text-muted fs-4" />
                 </Link>
@@ -209,7 +209,7 @@ const Header = () => {
                 </Link>
               </div>
               {/* group */}
-              <div className="mx-4 nav__btn mt-2">
+              <div className={`mx-4 nav__btn ${props.tab === "friendrs"? "nav__btn-active":""}`}>
                 <a href="/friends-request" className="text-decoration-none">
                   <i className="fas fa-users position-relative text-muted fs-4">
                     <span
