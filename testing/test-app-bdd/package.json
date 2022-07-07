@@ -1,0 +1,19 @@
+{
+  "name": "bdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.4.0",
+    "chai": "^4.3.6",
+    "chromedriver": "^103.0.0",
+    "redux-devtools-extension": "^2.13.9",
+    "selenium-webdriver": "^4.3.1"
+  }
+}
