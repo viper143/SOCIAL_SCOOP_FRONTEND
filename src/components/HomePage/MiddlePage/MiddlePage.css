@@ -1,0 +1,23 @@
+.collapsed-div {
+  display: none;
+}
+
+.active-like {
+  background-color: #008cba;
+  color: red;
+}
+
+.active-dislike {
+  background-color: #f44336;
+  color: yellow;
+}
+
+.button {
+  border-radius: 8px;
+  font-size: 20px;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+}
